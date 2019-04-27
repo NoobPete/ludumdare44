@@ -96,7 +96,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 4b0884ee673d9d646b94da9a4290c9df,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -152,18 +153,10 @@ MonoBehaviour:
   startPart: {fileID: 6772957532064388906, guid: ea27037c83eaa404783b9a06dfa88591,
     type: 3}
   partList:
-  - {fileID: 6772957532064388906, guid: ea27037c83eaa404783b9a06dfa88591, type: 3}
-  - {fileID: 6772957532064388906, guid: e8966b21b07a8694b834f135ca5fd44c, type: 3}
-  - {fileID: 6772957532064388906, guid: aaff14dda7d031a43a883227aee85d58, type: 3}
-  - {fileID: 6772957532064388906, guid: 1a46813c725265c4587764d78cb8f9e6, type: 3}
-  - {fileID: 6772957532064388906, guid: cab158ab82111b048ba62a588bff8b7d, type: 3}
-  - {fileID: 6772957532064388906, guid: aaff14dda7d031a43a883227aee85d58, type: 3}
-  - {fileID: 6772957532064388906, guid: 1a46813c725265c4587764d78cb8f9e6, type: 3}
-  - {fileID: 6772957532064388906, guid: cab158ab82111b048ba62a588bff8b7d, type: 3}
-  - {fileID: 6772957532064388906, guid: 1a46813c725265c4587764d78cb8f9e6, type: 3}
-  - {fileID: 6772957532064388906, guid: cab158ab82111b048ba62a588bff8b7d, type: 3}
+  - {fileID: 6772957532064388906, guid: 9866c044bb506464a9413ec3b072d148, type: 3}
   unfinishedDoors: []
   dungeonBounds: []
+  numberOfRoomToGenrate: 100
 --- !u!4 &104961309
 Transform:
   m_ObjectHideFlags: 0

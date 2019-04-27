@@ -10,15 +10,29 @@ public class DungeonGeneratorScript : MonoBehaviour
     public List<GameObject> partList = new List<GameObject>();
     public List<Transform> unfinishedDoors = new List<Transform>();
     public List<Bounds> dungeonBounds = new List<Bounds>();
+    public int numberOfRoomToGenrate = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         GameObject o = Instantiate(startPart, new Vector3(0, 0, 0), Quaternion.identity);
 
+        // Make it detect detection
+        Bounds bounds = GetMaxBounds(o);
+        float boundsMargin = 1f;
+        bounds.size = bounds.size - new Vector3(boundsMargin, 0, boundsMargin);
+
+        dungeonBounds.Add(bounds);
+
         foreach (Transform t in GetDoors(o.transform))
         {
             unfinishedDoors.Add(t);
+        }
+        
+        while(numberOfRoomToGenrate > 0)
+        {
+            numberOfRoomToGenrate--;
+            BuildOnePart();
         }
     }
 
