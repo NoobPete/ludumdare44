@@ -1,16 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class RayCastShoot : MonoBehaviour
 {
     public int gunDamage = 1;
-    public float fireRate = .25f;
+    public float fireRate = .07f;
     public float weaponRange = 50f;
     public float hitForce = 100f;
+    public int maxAmmo = 30;
+    public int currentAmmo;
+    private bool reloading = false;
+    public float reloadTime = 1.4f;
+
+    public TextMeshProUGUI ammoText;
+
     public Transform gunEnd;
     private Camera fpsCam;
-    private WaitForSeconds shotDuration = new WaitForSeconds(.07f);
+    private WaitForSeconds shotDuration = new WaitForSeconds(.05f);
     private AudioSource gunAudio;
     private LineRenderer laserLine;
     private float nextFire;
@@ -18,6 +26,7 @@ public class RayCastShoot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentAmmo = maxAmmo;
         laserLine = GetComponent<LineRenderer>();
         gunAudio = GetComponent<AudioSource>();
 
@@ -27,8 +36,17 @@ public class RayCastShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
+        if (Input.GetButton("Fire2") && !reloading)
         {
+            reloading = true;
+            currentAmmo = 0;
+            StartCoroutine(ReloadWait());
+        }
+
+        if (Input.GetButton("Fire1") && Time.time > nextFire && currentAmmo > 0)
+        {
+            currentAmmo--;
+
             nextFire = Time.time + fireRate;
             StartCoroutine(ShotEffect());
 
@@ -53,11 +71,21 @@ public class RayCastShoot : MonoBehaviour
                 laserLine.SetPosition(1, fpsCam.transform.forward * weaponRange);
             }
         }
+
+        ammoText.text = currentAmmo + "/" + maxAmmo;
+    }
+
+    private IEnumerator ReloadWait()
+    {
+        yield return new WaitForSeconds(reloadTime);
+
+        reloading = false;
+        currentAmmo = maxAmmo;
     }
 
     private IEnumerator ShotEffect()
     {
-        //gunAudio.Play();
+        gunAudio.Play();
         laserLine.enabled = true;
 
         yield return shotDuration;
