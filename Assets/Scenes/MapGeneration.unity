@@ -171,30 +171,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1161618596 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8356024064617816380, guid: dfad9415cc4bc8f489b7da100512781f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1492001714}
-  m_PrefabAsset: {fileID: 0}
---- !u!143 &1161618597
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1161618596}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.5000001
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1492001714
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -262,36 +238,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8356024064617816770, guid: dfad9415cc4bc8f489b7da100512781f,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 8356024064617816381, guid: dfad9415cc4bc8f489b7da100512781f,
-        type: 3}
-      propertyPath: m_CollisionDetection
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8356024064617816381, guid: dfad9415cc4bc8f489b7da100512781f,
-        type: 3}
-      propertyPath: m_Interpolate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8356024064617816774, guid: dfad9415cc4bc8f489b7da100512781f,
-        type: 3}
-      propertyPath: MovementSpeed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8356024064617816774, guid: dfad9415cc4bc8f489b7da100512781f,
-        type: 3}
-      propertyPath: JumpPower
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8356024064617816774, guid: dfad9415cc4bc8f489b7da100512781f,
-        type: 3}
-      propertyPath: Gravity
-      value: 20
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8356024064617816381, guid: dfad9415cc4bc8f489b7da100512781f, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfad9415cc4bc8f489b7da100512781f, type: 3}
