@@ -9,6 +9,7 @@ public class DungeonGeneratorScript : MonoBehaviour
     public GameObject startPart;
     public List<GameObject> partList = new List<GameObject>();
     public List<Transform> unfinishedDoors = new List<Transform>();
+    public List<Bounds> dungeonBounds = new List<Bounds>();
 
     // Start is called before the first frame update
     void Start()
@@ -25,19 +26,41 @@ public class DungeonGeneratorScript : MonoBehaviour
     {
         if (unfinishedDoors.Count != 0)
         {
+            // Find door to expand
             Transform originalDoor = unfinishedDoors[0];
             unfinishedDoors.Remove(originalDoor);
 
-            GameObject newPart = Instantiate(partList[0], new Vector3(0, 0, 0), Quaternion.identity);
+            // Spawn the object
+            GameObject partPrefab = partList[UnityEngine.Random.Range(0, partList.Count)];
+            GameObject newPart = Instantiate(partPrefab, new Vector3(0, 0, 0), Quaternion.identity);
 
+            // Match the doors
             List<Transform> newDoors = GetDoors(newPart.transform);
 
-            Transform newDoorToMatch = newDoors[0];
+            Transform newDoorToMatch = newDoors[UnityEngine.Random.Range(0, newDoors.Count)];
             newDoors.Remove(newDoorToMatch);
 
             newPart.transform.rotation = originalDoor.transform.rotation * Quaternion.Inverse(newDoorToMatch.rotation) * Quaternion.Euler(0, 180, 0);
             newPart.transform.position = originalDoor.transform.position - (newDoorToMatch.position - newPart.transform.position);
 
+            // Make it detect detection
+            Bounds bounds = GetMaxBounds(newPart);
+            float boundsMargin = 1f;
+            bounds.size = bounds.size - new Vector3(boundsMargin, 0, boundsMargin);
+
+            foreach (Bounds b in dungeonBounds)
+            {
+                if (bounds.Intersects(b))
+                {
+                    Destroy(newPart);
+                    Debug.Log("Bounds has collision adding failled");
+                    return;
+                }
+            }
+
+            dungeonBounds.Add(bounds);
+
+            // Add new doors as unfinished
             foreach (Transform t in newDoors)
             {
                 unfinishedDoors.Add(t);
@@ -88,6 +111,22 @@ public class DungeonGeneratorScript : MonoBehaviour
 
             Gizmos.DrawCube(t.position, new Vector3(1, 1, 1));
         }
+
+        Gizmos.color = new Color(0, 0, 1, 0.5f);
+        foreach (Bounds b in dungeonBounds)
+        {
+            Gizmos.DrawWireCube(b.center, b.size);
+        }
+    }
+
+    Bounds GetMaxBounds(GameObject g)
+    {
+        var b = new Bounds(g.transform.position, Vector3.zero);
+        foreach (Renderer r in g.GetComponentsInChildren<Renderer>())
+        {
+            b.Encapsulate(r.bounds);
+        }
+        return b;
     }
 }
 
