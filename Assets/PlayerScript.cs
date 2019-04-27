@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
@@ -10,9 +11,12 @@ public class PlayerScript : MonoBehaviour
     public float Gravity;
     public GameObject head;
     // private Rigidbody rb;
+    public int currentHealth = 10;
 
     private CharacterController characterController;
     private Vector3 moveDirection = Vector3.zero;
+
+    public TextMeshProUGUI healthText;
 
     // Start is called before the first frame update
     void Start()
@@ -54,10 +58,17 @@ public class PlayerScript : MonoBehaviour
 
         // Move the controller
         characterController.Move(moveDirection * Time.deltaTime);
+
+        healthText.text = currentHealth.ToString();
     }
 
     void FixedUpdate()
     {
 
+    }
+
+    public void Damage(int damageAmount)
+    {
+        currentHealth -= damageAmount;                       
     }
 }
