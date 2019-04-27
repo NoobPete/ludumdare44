@@ -152,8 +152,18 @@ MonoBehaviour:
   startPart: {fileID: 6772957532064388906, guid: ea27037c83eaa404783b9a06dfa88591,
     type: 3}
   partList:
-  - {fileID: 976636767153451365, guid: 2c20d1f0b98496b4795a736592a387c4, type: 3}
+  - {fileID: 6772957532064388906, guid: ea27037c83eaa404783b9a06dfa88591, type: 3}
+  - {fileID: 6772957532064388906, guid: e8966b21b07a8694b834f135ca5fd44c, type: 3}
+  - {fileID: 6772957532064388906, guid: aaff14dda7d031a43a883227aee85d58, type: 3}
+  - {fileID: 6772957532064388906, guid: 1a46813c725265c4587764d78cb8f9e6, type: 3}
+  - {fileID: 6772957532064388906, guid: cab158ab82111b048ba62a588bff8b7d, type: 3}
+  - {fileID: 6772957532064388906, guid: aaff14dda7d031a43a883227aee85d58, type: 3}
+  - {fileID: 6772957532064388906, guid: 1a46813c725265c4587764d78cb8f9e6, type: 3}
+  - {fileID: 6772957532064388906, guid: cab158ab82111b048ba62a588bff8b7d, type: 3}
+  - {fileID: 6772957532064388906, guid: 1a46813c725265c4587764d78cb8f9e6, type: 3}
+  - {fileID: 6772957532064388906, guid: cab158ab82111b048ba62a588bff8b7d, type: 3}
   unfinishedDoors: []
+  dungeonBounds: []
 --- !u!4 &104961309
 Transform:
   m_ObjectHideFlags: 0
@@ -167,6 +177,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &287292695
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 287292696}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &287292696
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287292695}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.083881, y: -1.4496326, z: 5.156788}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &351498720
 GameObject:
