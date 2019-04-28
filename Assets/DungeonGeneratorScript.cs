@@ -20,7 +20,7 @@ public class DungeonGeneratorScript : MonoBehaviour
 
         // Make it detect detection
         Bounds bounds = GetMaxBounds(o);
-        float boundsMargin = 2f;
+        float boundsMargin = 1f;
         bounds.size = bounds.size - new Vector3(boundsMargin, 0, boundsMargin);
 
         dungeonBounds.Add(bounds);

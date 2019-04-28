@@ -74,7 +74,7 @@ public class RayCastShoot : MonoBehaviour
             }
             else
             {
-                laserLine.SetPosition(1, fpsCam.transform.forward * weaponRange);
+                laserLine.SetPosition(1, fpsCam.transform.position + fpsCam.transform.forward * weaponRange);
             }
         }
 
