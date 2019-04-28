@@ -18,12 +18,20 @@ public class JumpTowardsPlayerScript : MonoBehaviour
     private bool decreaseHealth = false;
     private PlayerScript toRemoveHealthFrom;
 
+    public bool isUpRight = false;
+
     [Header("Attack Jump")]
     public bool isJumpAttacking = false;
     public float jumpAttackPower = 2000f;
     public float jumpAttackColdDown = 6f;
     public float jumpAttackDistance = 10f;
     private float nextJumpAttackTime = 0f;
+
+    [Header("Shooting Attack")]
+    public bool isShooting = false;
+    public GameObject shotPrefab;
+    public float shotColdDown = 3f;
+    private float nextShot = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -68,6 +76,21 @@ public class JumpTowardsPlayerScript : MonoBehaviour
             if (nextJumpAttackTime < Time.time && Vector3.Distance(this.transform.position, target.transform.position) < jumpAttackDistance) {
                 nextJumpAttackTime = Time.time + jumpAttackColdDown;
                 rb.AddForce(transform.forward * jumpAttackPower);
+            }
+        }
+
+        if (isUpRight)
+        {
+            transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y, transform.localEulerAngles.z);
+        }
+
+        if (isShooting)
+        {
+            if (nextShot < Time.time)
+            {
+                nextShot = Time.time + shotColdDown;
+                Vector3 relativePos = target.transform.position - this.transform.position;
+                Destroy(Instantiate(shotPrefab, transform.position, Quaternion.LookRotation(relativePos, Vector3.up)), 10f);
             }
         }
     }

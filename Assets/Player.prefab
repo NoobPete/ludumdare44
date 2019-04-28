@@ -247,7 +247,6 @@ GameObject:
   - component: {fileID: 2705415635592492412}
   - component: {fileID: 462632417866058315}
   - component: {fileID: 8551715631297034719}
-  - component: {fileID: 4250269640515702425}
   - component: {fileID: 894505512099818397}
   m_Layer: 8
   m_Name: laser
@@ -393,19 +392,6 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!65 &4250269640515702425
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1427862045710206831}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.05, z: 1.05}
-  m_Center: {x: -2.284392, y: 3.3097515, z: 3.58}
 --- !u!82 &894505512099818397
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1220,7 +1206,6 @@ GameObject:
   - component: {fileID: 8356024064617816769}
   - component: {fileID: 8356024064617816768}
   - component: {fileID: 8356024064617816771}
-  - component: {fileID: 8356024064617816770}
   - component: {fileID: 8356024064617816774}
   - component: {fileID: 1161618597}
   - component: {fileID: 4024043152295161312}
@@ -1293,20 +1278,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &8356024064617816770
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8356024064617816380}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.95
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!114 &8356024064617816774
 MonoBehaviour:
   m_ObjectHideFlags: 0

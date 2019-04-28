@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -162,8 +162,15 @@ MonoBehaviour:
   - {fileID: 6772957532064388906, guid: 5f1659754ad5e4e4788bfc7900e0e130, type: 3}
   unfinishedDoors: []
   dungeonBounds: []
-  numberOfRoomToGenrate: 100
+  dungeonBoundsUnvisited: []
+  numberOfRoomToGenrate: 40
   maxTriesPerPart: 10
+  monsterList:
+  - {fileID: 6261435067601024400, guid: 91720fbd3beca5740a03f98e648db127, type: 3}
+  - {fileID: 6261435067601024400, guid: 9f729860a5a6ccd4e9e2f28e0a10b8c1, type: 3}
+  - {fileID: 6261435067601024400, guid: 9d8006a688112544c8ea1698c1ae501d, type: 3}
+  player: {fileID: 1830496962}
+  monstersPerSpawn: 1
 --- !u!4 &104961309
 Transform:
   m_ObjectHideFlags: 0
@@ -245,8 +252,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8356024064170260913, guid: dfad9415cc4bc8f489b7da100512781f,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8356024064170260913, guid: dfad9415cc4bc8f489b7da100512781f,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8356024064170260913, guid: dfad9415cc4bc8f489b7da100512781f,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8356024064170260913, guid: dfad9415cc4bc8f489b7da100512781f,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfad9415cc4bc8f489b7da100512781f, type: 3}
+--- !u!1 &1830496962 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8356024064617816380, guid: dfad9415cc4bc8f489b7da100512781f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1492001714}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2066568146
 PrefabInstance:
   m_ObjectHideFlags: 0

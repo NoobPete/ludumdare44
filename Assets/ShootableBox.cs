@@ -22,7 +22,7 @@ public class ShootableBox : MonoBehaviour
                 audioSource2.Play();
             }
             //if health has fallen below zero, deactivate it 
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         } else
         {
             if (audioSource1 != null)

@@ -10,8 +10,13 @@ public class DungeonGeneratorScript : MonoBehaviour
     public List<GameObject> partList = new List<GameObject>();
     public List<Transform> unfinishedDoors = new List<Transform>();
     public List<Bounds> dungeonBounds = new List<Bounds>();
+    public List<Bounds> dungeonBoundsUnvisited = new List<Bounds>();
     public int numberOfRoomToGenrate = 0;
     public int maxTriesPerPart = 10;
+    public GameObject[] monsterList;
+    private List<GameObject> parts = new List<GameObject>();
+    public GameObject player;
+    public int monstersPerSpawn = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +29,7 @@ public class DungeonGeneratorScript : MonoBehaviour
         bounds.size = bounds.size - new Vector3(boundsMargin, 0, boundsMargin);
 
         dungeonBounds.Add(bounds);
+        parts.Add(o);
 
         foreach (Transform t in GetDoors(o.transform))
         {
@@ -37,6 +43,32 @@ public class DungeonGeneratorScript : MonoBehaviour
         }
 
         CloseAllUnfinished();
+
+        foreach (Bounds b in dungeonBounds)
+        {
+            Bounds newB = b;
+            float margin = 1f;
+            bounds.size = bounds.size - new Vector3(margin, 0, margin);
+
+            dungeonBoundsUnvisited.Add(newB);
+        }
+    }
+
+    private List<GameObject> SpawnMonsterInRoom(GameObject part)
+    {
+        MonsterSpwanerScript[] msss = part.gameObject.GetComponentsInChildren<MonsterSpwanerScript>();
+
+        List<GameObject> monsters = new List<GameObject>();
+
+        foreach (MonsterSpwanerScript mss in msss)
+        {
+            for (int i = 0; i < monstersPerSpawn; i++)
+            {
+                monsters.Add(Instantiate(monsterList[UnityEngine.Random.Range(0, monsterList.Length)], mss.transform.position, Quaternion.identity));
+            }
+        }
+
+        return monsters;
     }
 
     public void BuildOnePart()
@@ -44,7 +76,7 @@ public class DungeonGeneratorScript : MonoBehaviour
         if (unfinishedDoors.Count != 0)
         {
             // Find door to expand
-            Transform originalDoor = unfinishedDoors[0];
+            Transform originalDoor = unfinishedDoors[UnityEngine.Random.Range(0, unfinishedDoors.Count)];
             unfinishedDoors.Remove(originalDoor);
 
             int triesLeft = maxTriesPerPart;
@@ -83,6 +115,7 @@ public class DungeonGeneratorScript : MonoBehaviour
                 }
 
                 dungeonBounds.Add(bounds);
+                parts.Add(newPart);
 
                 // Add new doors as unfinished
                 foreach (Transform t in newDoors)
@@ -132,7 +165,26 @@ public class DungeonGeneratorScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        for (int i = 0; i < dungeonBoundsUnvisited.Count; i++)
+        {
+            if (dungeonBoundsUnvisited[i].ClosestPoint(player.transform.position) == player.transform.position)
+            {
+                List<GameObject> monsters = SpawnMonsterInRoom(parts[i]);
+                GameObject part = parts[i];
 
+                dungeonBoundsUnvisited.RemoveAt(i);
+                parts.RemoveAt(i);
+
+                if (monsters.Count != 0)
+                {
+                    DoorScript[] dss = part.GetComponentsInChildren<DoorScript>();
+                    foreach (DoorScript ds in dss)
+                    {
+                        ds.CloseUntilNull(monsters);
+                    }
+                }
+            }
+        }
     }
 
     private void OnDrawGizmos()

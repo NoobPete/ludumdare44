@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7067824289117428181}
   - component: {fileID: -8780127628233104764}
   - component: {fileID: 2268498327441316415}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PoisonSlime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,10 +147,14 @@ MonoBehaviour:
   minJumpTime: 2
   maxJumpTime: 10
   jumpPower: 700
+  isUpRight: 0
   isJumpAttacking: 1
   jumpAttackPower: 2000
   jumpAttackColdDown: 6
   jumpAttackDistance: 10
+  isShooting: 0
+  shotPrefab: {fileID: 0}
+  shotColdDown: 3
 --- !u!82 &-8780127628233104764
 AudioSource:
   m_ObjectHideFlags: 0
@@ -354,7 +358,7 @@ GameObject:
   - component: {fileID: 688282805012037260}
   - component: {fileID: 6826590487290255664}
   - component: {fileID: 9096566301363231631}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -431,7 +435,7 @@ GameObject:
   - component: {fileID: 8890818459035689547}
   - component: {fileID: 8895168121264215741}
   - component: {fileID: 8834651348283426101}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
