@@ -35,6 +35,8 @@ public class DungeonGeneratorScript : MonoBehaviour
             numberOfRoomToGenrate--;
             BuildOnePart();
         }
+
+        CloseAllUnfinished();
     }
 
     public void BuildOnePart()
@@ -46,6 +48,7 @@ public class DungeonGeneratorScript : MonoBehaviour
             unfinishedDoors.Remove(originalDoor);
 
             int triesLeft = maxTriesPerPart;
+            outherWhile:
             while (triesLeft > 0)
             {
                 triesLeft--;
@@ -75,7 +78,7 @@ public class DungeonGeneratorScript : MonoBehaviour
                     {
                         Destroy(newPart);
                         Debug.Log("Bounds has collision adding failled. Part id: " + partNumber);
-                        continue;
+                        goto outherWhile;
                     }
                 }
 
@@ -99,6 +102,15 @@ public class DungeonGeneratorScript : MonoBehaviour
         } else
         {
             Debug.LogWarning("Now places left to place a part");
+        }
+    }
+
+    public void CloseAllUnfinished()
+    {
+        foreach (Transform door in unfinishedDoors)
+        {
+            DoorScript ds = door.GetComponent<DoorScript>();
+            ds.ClosePermanent();
         }
     }
 
