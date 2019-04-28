@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -12,6 +14,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject head;
     // private Rigidbody rb;
     public int currentHealth = 10;
+    private bool gameOver = false;
 
     private CharacterController characterController;
     private Vector3 moveDirection = Vector3.zero;
@@ -28,6 +31,8 @@ public class PlayerScript : MonoBehaviour
     public RayCastShoot laserGun;
     public RayCastShoot sniper;
     public RayCastShoot currentWeapon;
+
+    public Image deathScreen;
 
     // Start is called before the first frame update
     void Start()
@@ -106,6 +111,12 @@ public class PlayerScript : MonoBehaviour
 
     public void Damage(int damageAmount)
     {
-        currentHealth -= damageAmount;                       
+        currentHealth -= damageAmount;
+        if (currentHealth <= 0 && gameOver == false)
+        {
+            gameOver = true;
+            deathScreen.gameObject.SetActive(true);
+            SceneManager.LoadScene("MapGeneration");
+        }
     }
 }
