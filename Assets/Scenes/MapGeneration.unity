@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 104961309}
   - component: {fileID: 104961308}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: DungeonMaster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,7 +153,13 @@ MonoBehaviour:
   startPart: {fileID: 6772957532064388906, guid: ea27037c83eaa404783b9a06dfa88591,
     type: 3}
   partList:
-  - {fileID: 6772957532064388906, guid: 9866c044bb506464a9413ec3b072d148, type: 3}
+  - {fileID: 6772957532064388906, guid: dfca936e606a1284da0eb2b3e7f41c29, type: 3}
+  - {fileID: 6772957532064388906, guid: 6aa0086aa35a60f4591356469953be54, type: 3}
+  - {fileID: 6772957532064388906, guid: 3752a48ca62e62b4cbfc3817f8282362, type: 3}
+  - {fileID: 6772957532064388906, guid: 31960d7daa0203b46ab7b4f7a5504845, type: 3}
+  - {fileID: 6772957532064388906, guid: 1e6d5ae5e4e1e05468ec68a257bc4de7, type: 3}
+  - {fileID: 6772957532064388906, guid: 0cc021f69fded5940afc3df11014ee71, type: 3}
+  - {fileID: 6772957532064388906, guid: 5f1659754ad5e4e4788bfc7900e0e130, type: 3}
   unfinishedDoors: []
   dungeonBounds: []
   numberOfRoomToGenrate: 100

@@ -11,6 +11,7 @@ public class DungeonGeneratorScript : MonoBehaviour
     public List<Transform> unfinishedDoors = new List<Transform>();
     public List<Bounds> dungeonBounds = new List<Bounds>();
     public int numberOfRoomToGenrate = 0;
+    public int maxTriesPerPart = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,7 @@ public class DungeonGeneratorScript : MonoBehaviour
 
         // Make it detect detection
         Bounds bounds = GetMaxBounds(o);
-        float boundsMargin = 1f;
+        float boundsMargin = 2f;
         bounds.size = bounds.size - new Vector3(boundsMargin, 0, boundsMargin);
 
         dungeonBounds.Add(bounds);
@@ -44,42 +45,57 @@ public class DungeonGeneratorScript : MonoBehaviour
             Transform originalDoor = unfinishedDoors[0];
             unfinishedDoors.Remove(originalDoor);
 
-            // Spawn the object
-            GameObject partPrefab = partList[UnityEngine.Random.Range(0, partList.Count)];
-            GameObject newPart = Instantiate(partPrefab, new Vector3(0, 0, 0), Quaternion.identity);
-
-            // Match the doors
-            List<Transform> newDoors = GetDoors(newPart.transform);
-
-            Transform newDoorToMatch = newDoors[UnityEngine.Random.Range(0, newDoors.Count)];
-            newDoors.Remove(newDoorToMatch);
-
-            newPart.transform.rotation = originalDoor.transform.rotation * Quaternion.Inverse(newDoorToMatch.rotation) * Quaternion.Euler(0, 180, 0);
-            newPart.transform.position = originalDoor.transform.position - (newDoorToMatch.position - newPart.transform.position);
-
-            // Make it detect detection
-            Bounds bounds = GetMaxBounds(newPart);
-            float boundsMargin = 1f;
-            bounds.size = bounds.size - new Vector3(boundsMargin, 0, boundsMargin);
-
-            foreach (Bounds b in dungeonBounds)
+            int triesLeft = maxTriesPerPart;
+            while (triesLeft > 0)
             {
-                if (bounds.Intersects(b))
+                triesLeft--;
+
+                // Spawn the object
+                int partNumber = UnityEngine.Random.Range(0, partList.Count);
+                GameObject partPrefab = partList[partNumber];
+                GameObject newPart = Instantiate(partPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+
+                // Match the doors
+                List<Transform> newDoors = GetDoors(newPart.transform);
+
+                Transform newDoorToMatch = newDoors[UnityEngine.Random.Range(0, newDoors.Count)];
+                newDoors.Remove(newDoorToMatch);
+
+                newPart.transform.rotation = originalDoor.transform.rotation * Quaternion.Inverse(newDoorToMatch.rotation) * Quaternion.Euler(0, 180, 0);
+                newPart.transform.position = originalDoor.transform.position - (newDoorToMatch.position - newPart.transform.position);
+
+                // Make it detect detection
+                Bounds bounds = GetMaxBounds(newPart);
+                float boundsMargin = 1f;
+                bounds.size = bounds.size - new Vector3(boundsMargin, 0, boundsMargin);
+
+                foreach (Bounds b in dungeonBounds)
                 {
-                    Destroy(newPart);
-                    Debug.Log("Bounds has collision adding failled");
-                    return;
+                    if (bounds.Intersects(b))
+                    {
+                        Destroy(newPart);
+                        Debug.Log("Bounds has collision adding failled. Part id: " + partNumber);
+                        continue;
+                    }
                 }
+
+                dungeonBounds.Add(bounds);
+
+                // Add new doors as unfinished
+                foreach (Transform t in newDoors)
+                {
+                    unfinishedDoors.Add(t);
+                }
+
+                break;
             }
 
-            dungeonBounds.Add(bounds);
-
-            // Add new doors as unfinished
-            foreach (Transform t in newDoors)
+            if (triesLeft == 0)
             {
-                unfinishedDoors.Add(t);
+                Debug.Log("Closing door");
+                DoorScript ds = originalDoor.GetComponent<DoorScript>();
+                ds.ClosePermanent();
             }
-
         } else
         {
             Debug.LogWarning("Now places left to place a part");
