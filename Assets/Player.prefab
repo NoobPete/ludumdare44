@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4781401867791983954}
   - component: {fileID: 3450225225579262169}
   - component: {fileID: 4488329147979883034}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 1679765557940750988}
   - component: {fileID: 8806372359407481057}
   - component: {fileID: 6388109717049394307}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: HPText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,7 +249,7 @@ GameObject:
   - component: {fileID: 8551715631297034719}
   - component: {fileID: 4250269640515702425}
   - component: {fileID: 894505512099818397}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,7 +305,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1427862045710206831}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -513,7 +513,7 @@ GameObject:
   - component: {fileID: 5376657634664001727}
   - component: {fileID: 1436838848443013151}
   - component: {fileID: 7530891156913776277}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -588,7 +588,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5682177155730269056}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LaserEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -620,7 +620,7 @@ GameObject:
   - component: {fileID: 1902357624026321448}
   - component: {fileID: 5720897725671319452}
   - component: {fileID: 7944148442199634536}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -697,7 +697,7 @@ GameObject:
   - component: {fileID: 3355345002885967028}
   - component: {fileID: 316576153788596409}
   - component: {fileID: 933217572398049942}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: AmmoText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -854,7 +854,7 @@ GameObject:
   - component: {fileID: 683653487871151378}
   - component: {fileID: 1408911390347793756}
   - component: {fileID: 2205852972340273378}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -932,7 +932,7 @@ GameObject:
   - component: {fileID: 9141043593928180758}
   - component: {fileID: 4710935418482764576}
   - component: {fileID: 1194661039073639506}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1032,7 +1032,7 @@ GameObject:
   - component: {fileID: 3222302619160529856}
   - component: {fileID: 8293038913689743988}
   - component: {fileID: 939761561229655939}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1106,7 +1106,7 @@ GameObject:
   - component: {fileID: 8356024064170260918}
   - component: {fileID: 8356024064170260913}
   - component: {fileID: 8356024064170260912}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1194,7 +1194,7 @@ GameObject:
   - component: {fileID: 8356024064617816774}
   - component: {fileID: 1161618597}
   - component: {fileID: 4024043152295161312}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1271,7 +1271,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 8356024064617816380}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.95
   m_Height: 2
   m_Direction: 1
@@ -1420,7 +1420,7 @@ GameObject:
   - component: {fileID: 3797180787583051557}
   - component: {fileID: 4942502360733497367}
   - component: {fileID: 3225237973181542245}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1497,7 +1497,7 @@ GameObject:
   - component: {fileID: 7039529711577689305}
   - component: {fileID: 5617134699283831712}
   - component: {fileID: 2545386618586714935}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
