@@ -163,6 +163,7 @@ MonoBehaviour:
   unfinishedDoors: []
   dungeonBounds: []
   numberOfRoomToGenrate: 100
+  maxTriesPerPart: 10
 --- !u!4 &104961309
 Transform:
   m_ObjectHideFlags: 0

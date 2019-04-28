@@ -191,6 +191,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2193685613142962585}
+  - component: {fileID: 8983896018856050863}
   m_Layer: 0
   m_Name: FireBowl
   m_TagString: Untagged
@@ -216,6 +217,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8983896018856050863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5229537270581794932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 009877b3682ac074a8fbfe1e7ba4f5b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chance: 0.25
+  toDelete:
+  - {fileID: 5965862822956589370}
+  - {fileID: 454879930040661591}
 --- !u!1 &5965862822956589370
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,8 +411,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2162356512266071632, guid: 0455b42a101ca12428b0a2ba25e73ddf,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0455b42a101ca12428b0a2ba25e73ddf, type: 3}
+--- !u!1 &454879930040661591 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 923845725067103223, guid: 0455b42a101ca12428b0a2ba25e73ddf,
+    type: 3}
+  m_PrefabInstance: {fileID: 757209641269886368}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5077697193246828427 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5545545885252704811, guid: 0455b42a101ca12428b0a2ba25e73ddf,
