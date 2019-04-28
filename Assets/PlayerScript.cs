@@ -25,11 +25,15 @@ public class PlayerScript : MonoBehaviour
 
     private float rotationY = 0f;
 
+    public RayCastShoot laserGun;
+    public RayCastShoot sniper;
+    public RayCastShoot currentWeapon;
+
     // Start is called before the first frame update
     void Start()
     {
         //rb = GetComponent<Rigidbody>();
-
+        currentWeapon = laserGun;
         characterController = GetComponent<CharacterController>();
 
         Cursor.lockState = CursorLockMode.Locked;
@@ -76,13 +80,20 @@ public class PlayerScript : MonoBehaviour
         // Move the controller
         characterController.Move(moveDirection * Time.deltaTime);
 
-        if (Input.GetButton("Weapon1"))
+        if (currentWeapon.reloading == false)
         {
-            print("weapon1 button works!");
-        }
-        if (Input.GetButton("Weapon2"))
-        {
-            print("weapon2 button works!");
+            if (Input.GetButton("Weapon1"))
+            {
+                currentWeapon = laserGun;
+                sniper.gameObject.SetActive(false);
+                currentWeapon.gameObject.SetActive(true);
+            }
+            if (Input.GetButton("Weapon2"))
+            {
+                currentWeapon = sniper;
+                laserGun.gameObject.SetActive(false);
+                currentWeapon.gameObject.SetActive(true);
+            }
         }
 
         healthText.text = currentHealth.ToString();
