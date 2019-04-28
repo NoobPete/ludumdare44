@@ -18,6 +18,11 @@ public class PlayerScript : MonoBehaviour
 
     public TextMeshProUGUI healthText;
 
+    [Header("Step")]
+    public Transform feetPosition;
+    public float StepSoundColddown = 0.1f;
+    private float NextStep = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +53,13 @@ public class PlayerScript : MonoBehaviour
             if (Input.GetButton("Jump"))
             {
                 moveDirection.y = JumpPower;
+            } else
+            {
+                if (NextStep < Time.time && (Mathf.Abs(Input.GetAxis("Horizontal")) > 0.1 || Mathf.Abs(Input.GetAxis("Vertical")) > 0.1))
+                {
+                    NextStep = Time.time + StepSoundColddown;
+                    AudioManeger.main.Play(AudioManeger.main.StepSound, feetPosition.position);
+                }
             }
         }
 

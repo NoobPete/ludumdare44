@@ -49,3 +49,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: efda493ff4417c94092490ef411aa50b, type: 3}
   ReloadSound:
   - {fileID: 8300000, guid: d8b45b25b1ed8484db78bdb132689aeb, type: 3}
+  WallHitSound:
+  - {fileID: 8300000, guid: e19f4ae384654194fbc1ca88cc7f82c9, type: 3}
+  - {fileID: 8300000, guid: e0eed458c4a4b614eb15a1e0ddeb3eb2, type: 3}
+  - {fileID: 8300000, guid: 76b6ba4a75947cc409a1661f6c478a4e, type: 3}
+  - {fileID: 8300000, guid: e46aa1ea5a9d90448806eb8fdb7a878c, type: 3}
+  - {fileID: 8300000, guid: 397ab0346598cd44b977a5f57b973635, type: 3}
+  - {fileID: 8300000, guid: 370e5fb8d2282fd4d8ab07f31d150c75, type: 3}
