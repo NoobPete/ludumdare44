@@ -41,12 +41,10 @@ public class PlayerScript : MonoBehaviour
     {
         // Movement
         transform.Rotate(Vector3.up, Input.GetAxis("Mouse X") * LookSentitivity);
-        head.transform.Rotate(Vector3.right, -Input.GetAxis("Mouse Y") * LookSentitivity);
-        /*
-         * rotationY += Input.GetAxis("Mouse Y") * LookSentitivity;
+        // head rotation        
+        rotationY += Input.GetAxis("Mouse Y") * LookSentitivity;
         rotationY = Mathf.Clamp(rotationY, -90, 90);
-        head.transform.localEulerAngles = new Vector3(-rotationY, transform.localEulerAngles.y, 0);
-        */
+        head.transform.localEulerAngles = new Vector3(-rotationY, head.transform.localEulerAngles.y, 0); //head.transform.Rotate(Vector3.right, -Input.GetAxis("Mouse Y") * LookSentitivity);
         // rb.MovePosition(transform.position + transform.forward * Input.GetAxis("Vertical") * MovementSpeed * Time.deltaTime + transform.right * Input.GetAxis("Horizontal") * MovementSpeed * Time.deltaTime);
 
         if (characterController.isGrounded)
