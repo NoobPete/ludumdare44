@@ -11,7 +11,7 @@ public class RayCastShoot : MonoBehaviour
     public float hitForce = 100f;
     public int maxAmmo = 30;
     public int currentAmmo;
-    private bool reloading = false;
+    public bool reloading = false;
     public float reloadTime = 1.4f;
 
     public TextMeshProUGUI ammoText;
