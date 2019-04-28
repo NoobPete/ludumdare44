@@ -18,6 +18,13 @@ public class JumpTowardsPlayerScript : MonoBehaviour
     private bool decreaseHealth = false;
     private PlayerScript toRemoveHealthFrom;
 
+    [Header("Attack Jump")]
+    public bool isJumpAttacking = false;
+    public float jumpAttackPower = 2000f;
+    public float jumpAttackColdDown = 6f;
+    public float jumpAttackDistance = 10f;
+    private float nextJumpAttackTime = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +62,14 @@ public class JumpTowardsPlayerScript : MonoBehaviour
             }
         }
         */
+
+        if (isJumpAttacking)
+        {
+            if (nextJumpAttackTime < Time.time && Vector3.Distance(this.transform.position, target.transform.position) < jumpAttackDistance) {
+                nextJumpAttackTime = Time.time + jumpAttackColdDown;
+                rb.AddForce(transform.forward * jumpAttackPower);
+            }
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
