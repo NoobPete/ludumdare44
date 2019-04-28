@@ -890,7 +890,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4339777599885221521
 Transform:
   m_ObjectHideFlags: 0
@@ -924,14 +924,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0545d64d016774f40a28ba04f18dd709, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunDamage: 1
-  fireRate: 0.07
-  weaponRange: 50
-  hitForce: 1000
-  maxAmmo: 30
+  gunDamage: 6
+  fireRate: 2
+  weaponRange: 100
+  hitForce: 4000
+  maxAmmo: 7
   currentAmmo: 0
   reloading: 0
-  reloadTime: 1.4
+  reloadTime: 2.2
   ammoText: {fileID: 933217572398049942}
   gunEnd: {fileID: 5027926493755570194}
 --- !u!120 &3596701784639808013
