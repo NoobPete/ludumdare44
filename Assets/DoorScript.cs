@@ -9,6 +9,7 @@ public class DoorScript : MonoBehaviour
     private bool locked = false;
     private bool lockedPerm = false;
     private List<GameObject> listToWatch;
+    public GameObject light;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,7 @@ public class DoorScript : MonoBehaviour
         locked = true;
         lockedPerm = true;
         blocker.SetActive(true);
+        Destroy(light);
     }
 
     internal void CloseUntilNull(List<GameObject> monsters)

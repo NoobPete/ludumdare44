@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blocker: {fileID: 4573794743753851029}
+  light: {fileID: 4985261095876893850}
 --- !u!1 &3060802243471133254
 GameObject:
   m_ObjectHideFlags: 0

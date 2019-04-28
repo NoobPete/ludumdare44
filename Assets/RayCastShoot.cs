@@ -36,7 +36,7 @@ public class RayCastShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Fire2") && !reloading)
+        if (Input.GetButton("Reload") && !reloading)
         {
             reloading = true;
             currentAmmo = 0;
