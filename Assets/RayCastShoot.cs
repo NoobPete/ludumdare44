@@ -50,10 +50,16 @@ public class RayCastShoot : MonoBehaviour
             nextFire = Time.time + fireRate;
             StartCoroutine(ShotEffect());
 
+            // Bit shift the index of the layer (8) to get a bit mask
+            int layerMask = 1 << 8;
+            // This would cast rays only against colliders in layer 8.
+            // But instead we want to collide against everything except layer 8. The ~ operator does this, it inverts a bitmask.
+            layerMask = ~layerMask;
+
             Vector3 rayOrigin = fpsCam.ViewportToWorldPoint(new Vector3(.5f, .5f, 0));
             RaycastHit hit;
             laserLine.SetPosition(0, gunEnd.position);
-            if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, weaponRange))
+            if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, weaponRange, layerMask))
             {
                 laserLine.SetPosition(1, hit.point);
                 ShootableBox health = hit.collider.GetComponent<ShootableBox>();
