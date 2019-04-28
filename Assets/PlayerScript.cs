@@ -76,6 +76,15 @@ public class PlayerScript : MonoBehaviour
         // Move the controller
         characterController.Move(moveDirection * Time.deltaTime);
 
+        if (Input.GetButton("Weapon1"))
+        {
+            print("weapon1 button works!");
+        }
+        if (Input.GetButton("Weapon2"))
+        {
+            print("weapon2 button works!");
+        }
+
         healthText.text = currentHealth.ToString();
     }
 
