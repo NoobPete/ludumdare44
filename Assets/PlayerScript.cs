@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
+    public static int level = 1;
+
     public float LookSentitivity;
     public float MovementSpeed;
     public float JumpPower;
@@ -101,12 +103,18 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
-        healthText.text = currentHealth.ToString();
+        healthText.text = "HP: " + currentHealth.ToString();
     }
 
     void FixedUpdate()
     {
 
+    }
+
+    public void GoToNextLevel()
+    {
+        level++;
+        SceneManager.LoadScene("MapGeneration");
     }
 
     public void Damage(int damageAmount)
@@ -116,6 +124,7 @@ public class PlayerScript : MonoBehaviour
         {
             gameOver = true;
             deathScreen.gameObject.SetActive(true);
+            level = 1;
             SceneManager.LoadScene("MapGeneration");
         }
     }

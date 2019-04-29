@@ -127,8 +127,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 3
-  audioSource1: {fileID: -8780127628233104764}
-  audioSource2: {fileID: 2268498327441316415}
+  onHitSound: {fileID: 8300000, guid: 620329b8d2f71f14581bf79bd38343f0, type: 3}
+  onKillSound: {fileID: 8300000, guid: 15684ff14f1d54f45bfa9088bc0c32b6, type: 3}
+  killReward: {fileID: 316809766868297654, guid: ee689d8fd1b3bcf48913d1ad4157d794,
+    type: 3}
 --- !u!114 &7067824289117428181
 MonoBehaviour:
   m_ObjectHideFlags: 0

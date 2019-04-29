@@ -61,11 +61,10 @@ public class RayCastShoot : MonoBehaviour
 
             Vector3 rayOrigin = fpsCam.ViewportToWorldPoint(new Vector3(.5f, .5f, 0));
             RaycastHit hit;
+            shotMade = true;
             if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, weaponRange, layerMask))
             {
-                shotMade = true;
                 shotPosition = hit.point;
-
 
                 ShootableBox health = hit.collider.GetComponent<ShootableBox>();
                 if (health != null)
@@ -79,7 +78,7 @@ public class RayCastShoot : MonoBehaviour
             }
             else
             {
-                laserLine.SetPosition(1, fpsCam.transform.position + fpsCam.transform.forward * weaponRange);
+                shotPosition = fpsCam.transform.position + fpsCam.transform.forward * weaponRange;
             }
         }
 

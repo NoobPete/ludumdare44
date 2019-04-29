@@ -8,6 +8,7 @@ public class JumpTowardsPlayerScript : MonoBehaviour
     public PlayerScript target;
     public Rigidbody rb;
     public float MovePower;
+
     [Header("Jump")]
     public float minJumpTime;
     public float maxJumpTime;
