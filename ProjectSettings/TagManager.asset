@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Door
+  - NextLevel
+  - NextLevelPos
   layers:
   - Default
   - TransparentFX

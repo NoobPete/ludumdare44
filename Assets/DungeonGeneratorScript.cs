@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.SceneManagement;
 
 public class DungeonGeneratorScript : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class DungeonGeneratorScript : MonoBehaviour
     private List<GameObject> parts = new List<GameObject>();
     public GameObject player;
     public int monstersPerSpawn = 1;
+    public GameObject nextLevelProp;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +54,33 @@ public class DungeonGeneratorScript : MonoBehaviour
 
             dungeonBoundsUnvisited.Add(newB);
         }
+
+        int tries = 30;
+        while (tries > 0)
+        {
+            GameObject toCheck = parts[UnityEngine.Random.Range(0, parts.Count)];
+
+            List<Transform> list = GetTag(toCheck.transform, "NextLevelPos");
+            if (list.Count == 0)
+            {
+                tries--;
+                continue;
+            } else
+            {
+                Instantiate(nextLevelProp, list[0].position, Quaternion.identity);
+                break;
+            }
+        }
+        if (tries == 0)
+        {
+            DungeonGenerationFailed();
+        }
+    }
+
+    void DungeonGenerationFailed()
+    {
+        Debug.LogWarning("Dungeon generation failled, retrying new dungeon");
+        SceneManager.LoadScene("MapGeneration");
     }
 
     private List<GameObject> SpawnMonsterInRoom(GameObject part)
@@ -154,6 +183,21 @@ public class DungeonGeneratorScript : MonoBehaviour
         for (int i = 0; i < o.childCount; i++)
         {
             if (o.GetChild(i).tag == "Door")
+            {
+                result.Add(o.GetChild(i));
+            }
+        }
+
+        return result;
+    }
+
+    private List<Transform> GetTag(Transform o, string tag)
+    {
+        List<Transform> result = new List<Transform>();
+
+        for (int i = 0; i < o.childCount; i++)
+        {
+            if (o.GetChild(i).tag == tag)
             {
                 result.Add(o.GetChild(i));
             }

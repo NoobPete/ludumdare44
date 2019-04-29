@@ -163,7 +163,7 @@ MonoBehaviour:
   unfinishedDoors: []
   dungeonBounds: []
   dungeonBoundsUnvisited: []
-  numberOfRoomToGenrate: 20
+  numberOfRoomToGenrate: 15
   maxTriesPerPart: 10
   monsterList:
   - {fileID: 6261435067601024400, guid: 91720fbd3beca5740a03f98e648db127, type: 3}
@@ -171,6 +171,8 @@ MonoBehaviour:
   - {fileID: 6261435067601024400, guid: 9d8006a688112544c8ea1698c1ae501d, type: 3}
   player: {fileID: 1830496962}
   monstersPerSpawn: 1
+  nextLevelProp: {fileID: 1046614604162050929, guid: 195d8f00e095a2d43a349746bfb05779,
+    type: 3}
 --- !u!4 &104961309
 Transform:
   m_ObjectHideFlags: 0

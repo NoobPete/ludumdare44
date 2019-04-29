@@ -39,6 +39,8 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("This is level: " + level);
+
         //rb = GetComponent<Rigidbody>();
         currentWeapon = laserGun;
         characterController = GetComponent<CharacterController>();
@@ -104,6 +106,14 @@ public class PlayerScript : MonoBehaviour
         }
 
         healthText.text = "HP: " + currentHealth.ToString();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "NextLevel")
+        {
+            GoToNextLevel();
+        }
     }
 
     void FixedUpdate()
