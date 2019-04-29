@@ -24,7 +24,7 @@ public class BulletScript : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(rayOrigin, transform.forward, out hit, speed * Time.deltaTime, layerMask))
         {
-            ShootableBox health = hit.collider.GetComponent<ShootableBox>();
+            PlayerScript health = hit.collider.GetComponent<PlayerScript>();
             if (health != null)
             {
                 health.Damage(damage);
@@ -33,7 +33,6 @@ public class BulletScript : MonoBehaviour
             {
                 hit.rigidbody.AddForce(-hit.normal * hitForce);
             }
-            Debug.Log(hit.collider.gameObject.name);
             Destroy(this.gameObject);
         }
 
