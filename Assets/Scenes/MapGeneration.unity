@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -163,7 +163,7 @@ MonoBehaviour:
   unfinishedDoors: []
   dungeonBounds: []
   dungeonBoundsUnvisited: []
-  numberOfRoomToGenrate: 40
+  numberOfRoomToGenrate: 20
   maxTriesPerPart: 10
   monsterList:
   - {fileID: 6261435067601024400, guid: 91720fbd3beca5740a03f98e648db127, type: 3}
