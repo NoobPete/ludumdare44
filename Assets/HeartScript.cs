@@ -24,7 +24,7 @@ public class HeartScript : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             PlayerScript p = other.gameObject.GetComponent<PlayerScript>();
-            p.currentHealth += 2;
+            PlayerScript.currentHealth += 2;
             Destroy(this.gameObject);
         }
     }

@@ -9,13 +9,13 @@ public class PlayerScript : MonoBehaviour
 {
     public static int level = 1;
 
-    public float LookSentitivity;
+    public static float LookSentitivity = 2f;
     public float MovementSpeed;
     public float JumpPower;
     public float Gravity;
     public GameObject head;
     // private Rigidbody rb;
-    public int currentHealth = 10;
+    public static int currentHealth = 10;
     private bool gameOver = false;
 
     private CharacterController characterController;
@@ -52,6 +52,16 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown("i"))
+        {
+            LookSentitivity += 0.2f;
+        }
+
+        if (Input.GetKeyDown("k"))
+        {
+            LookSentitivity -= 0.2f;
+        }
+
         // Movement
         transform.Rotate(Vector3.up, Input.GetAxis("Mouse X") * LookSentitivity);
         // head rotation        
@@ -135,6 +145,7 @@ public class PlayerScript : MonoBehaviour
             gameOver = true;
             deathScreen.gameObject.SetActive(true);
             level = 1;
+            currentHealth = 10;
             SceneManager.LoadScene("MapGeneration");
         }
     }
