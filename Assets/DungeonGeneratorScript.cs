@@ -275,7 +275,7 @@ public class DungeonGeneratorScript : MonoBehaviour
         return b;
     }
 }
-
+/*
 [CustomEditor(typeof(DungeonGeneratorScript))]
 public class DungeonGeneratorEditor : Editor
 {
@@ -290,3 +290,4 @@ public class DungeonGeneratorEditor : Editor
         }
     }
 }
+*/
