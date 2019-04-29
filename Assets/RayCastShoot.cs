@@ -23,6 +23,9 @@ public class RayCastShoot : MonoBehaviour
     private LineRenderer laserLine;
     private float nextFire;
 
+    public bool shotMade = false;
+    public Vector3 shotPosition;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,10 +61,12 @@ public class RayCastShoot : MonoBehaviour
 
             Vector3 rayOrigin = fpsCam.ViewportToWorldPoint(new Vector3(.5f, .5f, 0));
             RaycastHit hit;
-            laserLine.SetPosition(0, gunEnd.position);
             if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, weaponRange, layerMask))
             {
-                laserLine.SetPosition(1, hit.point);
+                shotMade = true;
+                shotPosition = hit.point;
+
+
                 ShootableBox health = hit.collider.GetComponent<ShootableBox>();
                 if (health != null)
                 {
@@ -79,6 +84,17 @@ public class RayCastShoot : MonoBehaviour
         }
 
         ammoText.text = currentAmmo + "/" + maxAmmo;
+    }
+
+    void LateUpdate()
+    {
+        if (shotMade)
+        {
+            laserLine.SetPosition(0, gunEnd.position);
+            laserLine.SetPosition(1, shotPosition);
+        }
+
+        shotMade = false;
     }
 
     private IEnumerator ReloadWait()
