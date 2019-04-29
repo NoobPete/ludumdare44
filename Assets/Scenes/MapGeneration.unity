@@ -163,7 +163,7 @@ MonoBehaviour:
   unfinishedDoors: []
   dungeonBounds: []
   dungeonBoundsUnvisited: []
-  numberOfRoomToGenrate: 15
+  numberOfRoomToGenrate: 12
   maxTriesPerPart: 10
   monsterList:
   - {fileID: 6261435067601024400, guid: 91720fbd3beca5740a03f98e648db127, type: 3}
@@ -254,6 +254,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 462632417866058315, guid: dfad9415cc4bc8f489b7da100512781f,
+        type: 3}
+      propertyPath: reloadTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911538108216765920, guid: dfad9415cc4bc8f489b7da100512781f,
+        type: 3}
+      propertyPath: reloadTime
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911538108216765920, guid: dfad9415cc4bc8f489b7da100512781f,
+        type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1679765557940750988, guid: dfad9415cc4bc8f489b7da100512781f,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -263,6 +278,56 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 133
+      objectReference: {fileID: 0}
+    - target: {fileID: 3348450189220829416, guid: dfad9415cc4bc8f489b7da100512781f,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3348450189220829416, guid: dfad9415cc4bc8f489b7da100512781f,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3348450189220829416, guid: dfad9415cc4bc8f489b7da100512781f,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3348450189220829416, guid: dfad9415cc4bc8f489b7da100512781f,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3348450189220829416, guid: dfad9415cc4bc8f489b7da100512781f,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3012608853966212659, guid: dfad9415cc4bc8f489b7da100512781f,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3012608853966212659, guid: dfad9415cc4bc8f489b7da100512781f,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3012608853966212659, guid: dfad9415cc4bc8f489b7da100512781f,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3012608853966212659, guid: dfad9415cc4bc8f489b7da100512781f,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3012608853966212659, guid: dfad9415cc4bc8f489b7da100512781f,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfad9415cc4bc8f489b7da100512781f, type: 3}

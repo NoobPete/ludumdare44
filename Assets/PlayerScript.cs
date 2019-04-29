@@ -139,7 +139,7 @@ public class PlayerScript : MonoBehaviour
 
     public void Damage(int damageAmount)
     {
-        currentHealth -= damageAmount;
+        currentHealth -= damageAmount + (level - 1);
         if (currentHealth <= 0 && gameOver == false)
         {
             gameOver = true;

@@ -85,19 +85,27 @@ public class DungeonGeneratorScript : MonoBehaviour
 
     private List<GameObject> SpawnMonsterInRoom(GameObject part)
     {
-        MonsterSpwanerScript[] msss = part.gameObject.GetComponentsInChildren<MonsterSpwanerScript>();
+        int chance = 75;
 
-        List<GameObject> monsters = new List<GameObject>();
-
-        foreach (MonsterSpwanerScript mss in msss)
+        if (chance > UnityEngine.Random.Range(0, 100))
         {
-            for (int i = 0; i < monstersPerSpawn; i++)
-            {
-                monsters.Add(Instantiate(monsterList[UnityEngine.Random.Range(0, monsterList.Length)], mss.transform.position, Quaternion.identity));
-            }
-        }
+            MonsterSpwanerScript[] msss = part.gameObject.GetComponentsInChildren<MonsterSpwanerScript>();
 
-        return monsters;
+            List<GameObject> monsters = new List<GameObject>();
+
+            foreach (MonsterSpwanerScript mss in msss)
+            {
+                for (int i = 0; i < UnityEngine.Random.Range(0, PlayerScript.level + 1); i++)
+                {
+                    monsters.Add(Instantiate(monsterList[UnityEngine.Random.Range(0, monsterList.Length)], mss.transform.position, Quaternion.identity));
+                }
+            }
+
+            return monsters;
+        } else
+        {
+            return new List<GameObject>();
+        }
     }
 
     public void BuildOnePart()
