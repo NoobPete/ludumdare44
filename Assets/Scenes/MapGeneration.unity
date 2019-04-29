@@ -252,41 +252,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8356024064170260913, guid: dfad9415cc4bc8f489b7da100512781f,
-        type: 3}
-      propertyPath: m_ClearFlags
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8356024064170260913, guid: dfad9415cc4bc8f489b7da100512781f,
-        type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8356024064170260913, guid: dfad9415cc4bc8f489b7da100512781f,
-        type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8356024064170260913, guid: dfad9415cc4bc8f489b7da100512781f,
-        type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8356024064170260913, guid: dfad9415cc4bc8f489b7da100512781f,
-        type: 3}
-      propertyPath: field of view
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 8356024064617816771, guid: dfad9415cc4bc8f489b7da100512781f,
-        type: 3}
-      propertyPath: m_ReceiveShadows
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8356024064617816774, guid: dfad9415cc4bc8f489b7da100512781f,
-        type: 3}
-      propertyPath: LookSentitivity
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfad9415cc4bc8f489b7da100512781f, type: 3}
 --- !u!1 &1830496962 stripped
